@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>文章详情 — 彭城堂中医</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    .article-hero {
+      height: 420px;
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+    .article-hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+    }
+    .article-hero-ph {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10rem;
+      font-weight: 700;
+      color: rgba(196,30,58,0.12);
+    }
+    .article-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 48px 40px;
+      max-width: 860px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .article-hero-tag {
+      font-size: .75rem;
+      letter-spacing: .25em;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .article-hero-title {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+    .article-hero-meta {
+      font-size: .82rem;
+      color: rgba(255,255,255,.5);
+    }
+    .article-body {
+      max-width: 760px;
+      margin: 64px auto;
+      padding: 0 24px 80px;
+      font-size: 1.05rem;
+      line-height: 2;
+      color: #333;
+    }
+    .article-body h1,.article-body h2,.article-body h3 {
+      margin: 2em 0 .8em;
+      line-height: 1.4;
+      color: var(--black);
+    }
+    .article-body h1{font-size:1.8rem}
+    .article-body h2{font-size:1.4rem}
+    .article-body h3{font-size:1.15rem}
+    .article-body p{margin-bottom:1.2em}
+    .article-body img{max-width:100%;border-radius:6px;margin:1em 0}
+    .article-body blockquote{border-left:3px solid var(--red);padding:12px 20px;margin:1.5em 0;background:#fef9f9;color:#555;font-style:italic}
+    .article-body ul,.article-body ol{padding-left:1.8em;margin-bottom:1.2em}
+    .article-body li{margin-bottom:.4em}
+    .article-body a{color:var(--red);text-decoration:underline}
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--red);
+      text-decoration: none;
+      font-size: .9rem;
+      margin-bottom: 40px;
+    }
+    .back-link:hover{opacity:.75}
+    .loading {
+      text-align: center;
+      padding: 120px 20px;
+      color: #bbb;
+      font-size: 1rem;
+    }
+    .error-state {
+      text-align: center;
+      padding: 120px 20px;
+      color: #bbb;
+    }
+    @media(max-width:768px){
+      .article-hero{height:300px}
+      .article-hero-content{padding:32px 20px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="彭城堂中医" class="nav-logo-img" />
+      <span class="nav-logo-text" data-zh="彭城堂中医" data-en="Pengchengtang TCM">彭城堂中医</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-zh="首页" data-en="Home">首页</a></li>
+      <li><a href="about.html" data-zh="品牌介绍" data-en="About">品牌介绍</a></li>
+      <li><a href="clinics.html" data-zh="门诊展示" data-en="Clinics">门诊展示</a></li>
+      <li><a href="learning.html" class="active" data-zh="健康学堂" data-en="Learning">健康学堂</a></li>
+      <li><a href="franchise.html" data-zh="招商加盟" data-en="Franchise">招商加盟</a></li>
+      <li><a href="contact.html" data-zh="联系我们" data-en="Contact">联系我们</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle">EN</button>
+      <button class="nav-hamburger" id="hamburger" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="index.html">首页</a>
+  <a href="about.html">品牌介绍</a>
+  <a href="clinics.html">门诊展示</a>
+  <a href="learning.html">健康学堂</a>
+  <a href="franchise.html">招商加盟</a>
+  <a href="contact.html">联系我们</a>
+  <button class="lang-toggle" id="mobileLangToggle" style="align-self:flex-start;margin-top:8px;">EN</button>
+</div>
+
+<main id="mainContent">
+  <div class="loading">加载中...</div>
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/logo.png" alt="彭城堂中医" class="footer-logo" />
+        <p class="footer-brand-name">彭城堂中医</p>
+        <p class="footer-brand-desc">立足家学传承，扎根真实临床。以非遗炁针疗法为核心，守正创新，惠及大众。</p>
+      </div>
+      <div class="footer-col">
+        <h4>快速导航</h4>
+        <ul>
+          <li><a href="about.html">品牌介绍</a></li>
+          <li><a href="clinics.html">门诊展示</a></li>
+          <li><a href="learning.html">健康学堂</a></li>
+          <li><a href="franchise.html">招商加盟</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>联系方式</h4>
+        <ul>
+          <li><a href="tel:4000860131">400-086-0131</a></li>
+          <li><a href="contact.html">扫码加企业微信</a></li>
+          <li><a href="mailto:173992289@qq.com">173992289@qq.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>在线学习</h4>
+        <ul>
+          <li><a href="https://learn.pengchengtangtcm.com" target="_blank" rel="noopener">炁针学习平台</a></li>
+          <li><a href="learning.html">健康文章</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 彭城堂中医 版权所有</span>
+      <span>传承中医，守护健康</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+async function loadArticle() {
+  const params = new URLSearchParams(location.search);
+  const id = params.get('id');
+  const main = document.getElementById('mainContent');
+
+  if (!id) {
+    main.innerHTML = '<div class="error-state"><p>文章不存在</p><a href="learning.html" style="color:#C41E3A">← 返回健康学堂</a></div>';
+    return;
+  }
+
+  try {
+    const res = await fetch('/api/articles.php?id=' + encodeURIComponent(id) + '&full=1&limit=100');
+    const data = await res.json();
+    const articles = data.articles || [];
+    const article = articles.find(a => a.id === id);
+
+    if (!article) {
+      main.innerHTML = '<div class="error-state"><p>文章未找到</p><a href="learning.html" style="color:#C41E3A">← 返回健康学堂</a></div>';
+      return;
+    }
+
+    document.title = article.title + ' — 彭城堂中医';
+
+    const heroImg = article.thumbnail
+      ? `<img src="${article.thumbnail}" alt="${article.title}">`
+      : `<div class="article-hero-ph">炁</div>`;
+
+    main.innerHTML = `
+      <div class="article-hero">
+        ${heroImg}
+        <div class="article-hero-content">
+          <p class="article-hero-tag">${article.category || ''}</p>
+          <h1 class="article-hero-title">${article.title}</h1>
+          <p class="article-hero-meta">彭城堂医师团队 &ensp;·&ensp; ${article.publishedDate || ''}</p>
+        </div>
+      </div>
+      <div class="article-body">
+        <a href="learning.html" class="back-link">← 返回健康学堂</a>
+        ${article.content || '<p>内容加载中...</p>'}
+      </div>
+    `;
+  } catch(e) {
+    main.innerHTML = '<div class="error-state"><p>加载失败，请稍后重试</p><a href="learning.html" style="color:#C41E3A">← 返回健康学堂</a></div>';
+  }
+}
+
+loadArticle();
+</script>
+</body>
+</html>

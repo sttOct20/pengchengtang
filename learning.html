@@ -228,134 +228,30 @@
       <p class="section-label" data-zh="健康文章" data-en="Health Articles">健康文章</p>
       <h2 class="section-title" style="margin-bottom:28px;" data-zh="专业医师撰写，免费公开阅读" data-en="Written by Practitioners, Free to Read">专业医师撰写，免费公开阅读</h2>
       <div class="section-divider" style="margin:0 0 40px;"></div>
-
       <div class="filter-bar" id="filterBar">
-        <button class="filter-btn active" data-cat="all" data-zh="全部" data-en="All">全部</button>
-        <button class="filter-btn" data-cat="qizhen" data-zh="炁针疗法" data-en="Qi Acupuncture">炁针疗法</button>
-        <button class="filter-btn" data-cat="tongue" data-zh="舌诊辨证" data-en="Tongue Diagnosis">舌诊辨证</button>
-        <button class="filter-btn" data-cat="complex" data-zh="疑难杂症" data-en="Complex Conditions">疑难杂症</button>
-        <button class="filter-btn" data-cat="wellness" data-zh="中医养生" data-en="Wellness">中医养生</button>
-        <button class="filter-btn" data-cat="herbs" data-zh="本草药材" data-en="Herbal Medicine">本草药材</button>
+        <button class="filter-btn active" data-cat="全部">全部</button>
+        <button class="filter-btn" data-cat="炁针疗法">炁针疗法</button>
+        <button class="filter-btn" data-cat="辨证施治">辨证施治</button>
+        <button class="filter-btn" data-cat="疑难杂症">疑难杂症</button>
+        <button class="filter-btn" data-cat="健康养生">健康养生</button>
+        <button class="filter-btn" data-cat="中药本草">中药本草</button>
       </div>
     </div>
 
     <!-- ══ FEATURED ARTICLE ══ -->
-    <a href="#" class="article-featured reveal" data-cat="qizhen">
-      <div class="article-featured-img">
-        <div class="article-featured-img-inner" style="background:linear-gradient(135deg,#0f0505,#3d0a0a);">
-          <span style="font-size:6rem;font-weight:700;color:rgba(196,30,58,0.35);line-height:1;">炁</span>
-        </div>
-      </div>
-      <div class="article-featured-body">
-        <p class="article-featured-tag" data-zh="炁针疗法 · 精选" data-en="Qi Acupuncture · Featured">炁针疗法 · 精选</p>
-        <h2 class="article-featured-title"
-            data-zh="什么是炁针？彭城堂炁针门核心疗法全解析"
-            data-en="What is Qi Acupuncture? A Complete Guide to Pengchengtang's Core Therapy">
-          什么是炁针？彭城堂炁针门核心疗法全解析
-        </h2>
-        <p class="article-featured-excerpt"
-           data-zh="炁针疗法是彭城堂中医独创的非遗级针法体系，以"炁"为核心理念，结合传统经络理论与现代临床实践，形成了一套诊断精准、疗效显著的针灸治疗体系……"
-           data-en="Qi Acupuncture is Pengchengtang's proprietary intangible heritage acupuncture system. Centered on the concept of 'Qi', it integrates classical meridian theory with modern clinical practice to achieve precise diagnosis and remarkable therapeutic results...">
-          炁针疗法是彭城堂中医独创的非遗级针法体系，以"炁"为核心理念，结合传统经络理论与现代临床实践，形成了一套诊断精准、疗效显著的针灸治疗体系……
-        </p>
-        <p class="article-featured-meta">
-          <span data-zh="彭城堂医师团队" data-en="Pengchengtang Medical Team">彭城堂医师团队</span>
-          &ensp;·&ensp;
-          <span>2025-01-15</span>
-        </p>
-      </div>
-    </a>
+    <div id="featuredContainer"></div>
 
     <!-- ══ ARTICLES GRID ══ -->
-    <div class="articles-grid" id="articlesGrid">
+    <div class="articles-grid" id="articlesGrid"></div>
 
-      <a href="#" class="article-card" data-cat="tongue">
-        <div class="article-card-img">
-          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a1a0a,#1a3d1a);display:flex;align-items:center;justify-content:center;">
-            <span style="font-size:3.5rem;color:rgba(30,120,30,0.35);font-weight:700;">舌</span>
-          </div>
-        </div>
-        <div class="article-card-body">
-          <p class="article-card-tag" data-zh="舌诊辨证" data-en="Tongue Diagnosis">舌诊辨证</p>
-          <h4 class="article-card-title" data-zh="六维舌诊：从舌象读懂身体的隐性信号" data-en="Six-Dimension Tongue Diagnosis: Reading Your Body's Hidden Signals">六维舌诊：从舌象读懂身体的隐性信号</h4>
-          <p class="article-card-date">2025-01-08</p>
-        </div>
-      </a>
-
-      <a href="#" class="article-card" data-cat="complex">
-        <div class="article-card-img">
-          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0f1a,#1a2a3d);display:flex;align-items:center;justify-content:center;">
-            <span style="font-size:3.5rem;color:rgba(30,60,150,0.35);font-weight:700;">针</span>
-          </div>
-        </div>
-        <div class="article-card-body">
-          <p class="article-card-tag" data-zh="疑难杂症" data-en="Complex Conditions">疑难杂症</p>
-          <h4 class="article-card-title" data-zh="针药并举：中医如何系统攻克顽固性疾病" data-en="Acupuncture & Herbs: Tackling Stubborn Chronic Disease">针药并举：中医如何系统攻克顽固性疾病</h4>
-          <p class="article-card-date">2024-12-28</p>
-        </div>
-      </a>
-
-      <a href="#" class="article-card" data-cat="wellness">
-        <div class="article-card-img">
-          <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1205,#3d2a0a);display:flex;align-items:center;justify-content:center;">
-            <span style="font-size:3.5rem;color:rgba(180,120,20,0.35);font-weight:700;">养</span>
-          </div>
-        </div>
-        <div class="article-card-body">
-          <p class="article-card-tag" data-zh="中医养生" data-en="Wellness">中医养生</p>
-          <h4 class="article-card-title" data-zh="顺时养生：二十四节气与中医调理指南" data-en="Seasonal Wellness: TCM Guide to the 24 Solar Terms">顺时养生：二十四节气与中医调理指南</h4>
-          <p class="article-card-date">2024-12-15</p>
-        </div>
-      </a>
-
-      <a href="#" class="article-card" data-cat="qizhen">
-        <div class="article-card-img">
-          <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0505,#2d0808);display:flex;align-items:center;justify-content:center;">
-            <span style="font-size:3.5rem;color:rgba(196,30,58,0.3);font-weight:700;">经</span>
-          </div>
-        </div>
-        <div class="article-card-body">
-          <p class="article-card-tag" data-zh="炁针疗法" data-en="Qi Acupuncture">炁针疗法</p>
-          <h4 class="article-card-title" data-zh="经络与炁：理解炁针疗法的理论基础" data-en="Meridians & Qi: The Theoretical Foundation of Qi Acupuncture">经络与炁：理解炁针疗法的理论基础</h4>
-          <p class="article-card-date">2024-12-05</p>
-        </div>
-      </a>
-
-      <a href="#" class="article-card" data-cat="herbs">
-        <div class="article-card-img">
-          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a1a0f,#103020);display:flex;align-items:center;justify-content:center;">
-            <span style="font-size:3.5rem;color:rgba(20,100,50,0.35);font-weight:700;">草</span>
-          </div>
-        </div>
-        <div class="article-card-body">
-          <p class="article-card-tag" data-zh="本草药材" data-en="Herbal Medicine">本草药材</p>
-          <h4 class="article-card-title" data-zh="彭城堂用药原则：上乘选料背后的坚守" data-en="Pengchengtang's Herbal Philosophy: Commitment to Premium Quality">彭城堂用药原则：上乘选料背后的坚守</h4>
-          <p class="article-card-date">2024-11-22</p>
-        </div>
-      </a>
-
-      <a href="#" class="article-card" data-cat="complex">
-        <div class="article-card-img">
-          <div style="width:100%;height:100%;background:linear-gradient(135deg,#12051a,#200a30);display:flex;align-items:center;justify-content:center;">
-            <span style="font-size:3.5rem;color:rgba(100,30,150,0.35);font-weight:700;">病</span>
-          </div>
-        </div>
-        <div class="article-card-body">
-          <p class="article-card-tag" data-zh="疑难杂症" data-en="Complex Conditions">疑难杂症</p>
-          <h4 class="article-card-title" data-zh="五痨七伤：传统中医对慢性损耗性疾病的认识" data-en="Five Taxations & Seven Injuries: TCM on Chronic Degenerative Disease">五痨七伤：传统中医对慢性损耗性疾病的认识</h4>
-          <p class="article-card-date">2024-11-10</p>
-        </div>
-      </a>
-
+    <!-- Empty state -->
+    <div id="emptyState" style="display:none;text-align:center;padding:80px 20px;color:#bbb;">
+      <p style="font-size:2rem;margin-bottom:12px;">📭</p>
+      <p>暂无文章，敬请期待</p>
     </div>
 
     <!-- Pagination -->
-    <div class="pagination reveal">
-      <button class="page-btn active">1</button>
-      <button class="page-btn">2</button>
-      <button class="page-btn">3</button>
-      <button class="page-btn" style="width:auto;padding:0 16px;" data-zh="下一页" data-en="Next">下一页</button>
-    </div>
+    <div class="pagination reveal" id="pagination"></div>
 
   </div>
 </section>
@@ -405,30 +301,110 @@
 
 <script src="js/main.js"></script>
 <script>
-  // Category filter
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const articleCards = document.querySelectorAll('#articlesGrid .article-card');
-  const featuredArticle = document.querySelector('.article-featured');
+let currentCat = '全部';
+let currentPage = 1;
+const LIMIT = 6;
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+async function loadArticles(cat, page) {
+  const params = new URLSearchParams({ page, limit: LIMIT });
+  if (cat !== '全部') params.set('category', cat);
+  try {
+    const res = await fetch('/api/articles.php?' + params);
+    return await res.json();
+  } catch(e) { return { articles: [], total: 0 }; }
+}
 
-      const cat = btn.dataset.cat;
+function thumbHtml(a) {
+  if (a.thumbnail) return `<img src="${a.thumbnail}" style="width:100%;height:100%;object-fit:cover;" alt="${a.title}">`;
+  return `<div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0505,#3d0a0a);display:flex;align-items:center;justify-content:center;"><span style="font-size:3.5rem;color:rgba(196,30,58,0.35);font-weight:700;">炁</span></div>`;
+}
 
-      // Featured article
-      if (featuredArticle) {
-        featuredArticle.style.display = (cat === 'all' || featuredArticle.dataset.cat === cat) ? 'grid' : 'none';
-      }
+function renderFeatured(a) {
+  const thumb = a.thumbnail
+    ? `<img src="${a.thumbnail}" style="width:100%;height:100%;object-fit:cover;" alt="${a.title}">`
+    : `<div style="width:100%;height:100%;background:linear-gradient(135deg,#0f0505,#3d0a0a);display:flex;align-items:center;justify-content:center;"><span style="font-size:6rem;font-weight:700;color:rgba(196,30,58,0.35);line-height:1;">炁</span></div>`;
+  const excerpt = a.excerpt || '';
+  return `<a href="article.html?id=${a.id}" class="article-featured reveal">
+    <div class="article-featured-img"><div class="article-featured-img-inner">${thumb}</div></div>
+    <div class="article-featured-body">
+      <p class="article-featured-tag">${a.category} · 精选</p>
+      <h2 class="article-featured-title">${a.title}</h2>
+      ${excerpt ? `<p class="article-featured-excerpt">${excerpt}</p>` : ''}
+      <p class="article-featured-meta">彭城堂医师团队 &ensp;·&ensp; ${a.publishedDate || ''}</p>
+    </div>
+  </a>`;
+}
 
-      // Grid articles
-      articleCards.forEach(card => {
-        const show = cat === 'all' || card.dataset.cat === cat;
-        card.style.display = show ? 'block' : 'none';
-      });
-    });
+function renderCard(a) {
+  return `<a href="article.html?id=${a.id}" class="article-card">
+    <div class="article-card-img">${thumbHtml(a)}</div>
+    <div class="article-card-body">
+      <p class="article-card-tag">${a.category || ''}</p>
+      <h4 class="article-card-title">${a.title}</h4>
+      <p class="article-card-date">${a.publishedDate || ''}</p>
+    </div>
+  </a>`;
+}
+
+function renderPagination(total, page) {
+  const pages = Math.ceil(total / LIMIT);
+  if (pages <= 1) { document.getElementById('pagination').innerHTML = ''; return; }
+  let html = '';
+  if (page > 1) html += `<button class="page-btn" onclick="goPage(${page-1})">上一页</button>`;
+  for (let i = 1; i <= pages; i++) {
+    html += `<button class="page-btn ${i===page?'active':''}" onclick="goPage(${i})">${i}</button>`;
+  }
+  if (page < pages) html += `<button class="page-btn" onclick="goPage(${page+1})">下一页</button>`;
+  document.getElementById('pagination').innerHTML = html;
+}
+
+async function render() {
+  const data = await loadArticles(currentCat, currentPage);
+  const articles = data.articles || [];
+  const total = data.total || 0;
+
+  const featured = document.getElementById('featuredContainer');
+  const grid = document.getElementById('articlesGrid');
+  const empty = document.getElementById('emptyState');
+
+  if (articles.length === 0) {
+    featured.innerHTML = '';
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+    document.getElementById('pagination').innerHTML = '';
+    return;
+  }
+  empty.style.display = 'none';
+
+  // First article as featured on page 1
+  if (currentPage === 1) {
+    featured.innerHTML = renderFeatured(articles[0]);
+    grid.innerHTML = articles.slice(1).map(renderCard).join('');
+  } else {
+    featured.innerHTML = '';
+    grid.innerHTML = articles.map(renderCard).join('');
+  }
+  renderPagination(total, currentPage);
+}
+
+function goPage(p) {
+  currentPage = p;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  render();
+}
+
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentCat = btn.dataset.cat;
+    currentPage = 1;
+    render();
   });
+});
+
+render();
 </script>
 </body>
 </html>
