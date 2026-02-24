@@ -5,9 +5,10 @@ define('UPLOAD_DIR', __DIR__ . '/../assets/uploads/');
 define('UPLOAD_URL', '/assets/uploads/');
 
 function loadArticles() {
-    if (!file_exists(DATA_FILE)) return [];
+    if (!file_exists(DATA_FILE)) return array();
     $json = file_get_contents(DATA_FILE);
-    return json_decode($json, true) ?: [];
+    $data = json_decode($json, true);
+    return $data ? $data : array();
 }
 
 function saveArticles($articles) {

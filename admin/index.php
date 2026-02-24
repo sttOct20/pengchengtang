@@ -4,9 +4,19 @@ require_once 'config.php';
 if (!isset($_SESSION['admin'])) { header('Location: login.php'); exit; }
 
 $articles = loadArticles();
-$cats = ['全部','炁针疗法','辨证施治','疑难杂症','健康养生','中药本草'];
-$filter = $_GET['cat'] ?? '全部';
-$filtered = $filter === '全部' ? $articles : array_filter($articles, fn($a) => $a['category'] === $filter);
+$cats = array('全部','炁针疗法','辨证施治','疑难杂症','健康养生','中药本草');
+$filter = isset($_GET['cat']) ? $_GET['cat'] : '全部';
+
+if ($filter === '全部') {
+    $filtered = $articles;
+} else {
+    $filtered = array();
+    foreach ($articles as $a) {
+        if (isset($a['category']) && $a['category'] === $filter) {
+            $filtered[] = $a;
+        }
+    }
+}
 $filtered = array_reverse(array_values($filtered));
 ?>
 <!DOCTYPE html>
@@ -55,10 +65,10 @@ body{font-family:'PingFang SC',sans-serif;background:#f7f7f7;color:#333}
     <a href="edit.php" class="btn-new">+ 新建文章</a>
     <div class="cats">
       <?php foreach ($cats as $c): ?>
-      <a href="?cat=<?= urlencode($c) ?>" class="cat <?= $filter===$c?'active':'' ?>"><?= $c ?></a>
+      <a href="?cat=<?php echo urlencode($c); ?>" class="cat <?php echo $filter===$c?'active':''; ?>"><?php echo $c; ?></a>
       <?php endforeach; ?>
     </div>
-    <span class="count">共 <?= count($filtered) ?> 篇</span>
+    <span class="count">共 <?php echo count($filtered); ?> 篇</span>
   </div>
 
   <?php if (empty($filtered)): ?>
@@ -67,21 +77,21 @@ body{font-family:'PingFang SC',sans-serif;background:#f7f7f7;color:#333}
   <?php foreach ($filtered as $a): ?>
   <div class="card">
     <?php if (!empty($a['thumbnail'])): ?>
-    <img class="thumb" src="<?= htmlspecialchars($a['thumbnail']) ?>" alt="">
+    <img class="thumb" src="<?php echo htmlspecialchars($a['thumbnail']); ?>" alt="">
     <?php else: ?>
     <div class="thumb-ph">炁</div>
     <?php endif; ?>
     <div class="info">
-      <h3><?= htmlspecialchars($a['title']) ?></h3>
+      <h3><?php echo htmlspecialchars($a['title']); ?></h3>
       <div class="meta">
-        <span class="tag"><?= htmlspecialchars($a['category'] ?? '未分类') ?></span>
-        <span><?= htmlspecialchars($a['publishedDate'] ?? '') ?></span>
+        <span class="tag"><?php echo htmlspecialchars(isset($a['category']) ? $a['category'] : '未分类'); ?></span>
+        <span><?php echo htmlspecialchars(isset($a['publishedDate']) ? $a['publishedDate'] : ''); ?></span>
       </div>
     </div>
     <div class="actions">
-      <a href="edit.php?id=<?= $a['id'] ?>" class="btn-edit">编辑</a>
+      <a href="edit.php?id=<?php echo $a['id']; ?>" class="btn-edit">编辑</a>
       <form method="post" action="delete.php" onsubmit="return confirm('确定删除？')">
-        <input type="hidden" name="id" value="<?= $a['id'] ?>">
+        <input type="hidden" name="id" value="<?php echo $a['id']; ?>">
         <button type="submit" class="btn-del">删除</button>
       </form>
     </div>
