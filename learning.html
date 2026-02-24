@@ -324,7 +324,7 @@ function renderFeatured(a) {
     ? `<img src="${a.thumbnail}" style="width:100%;height:100%;object-fit:cover;" alt="${a.title}">`
     : `<div style="width:100%;height:100%;background:linear-gradient(135deg,#0f0505,#3d0a0a);display:flex;align-items:center;justify-content:center;"><span style="font-size:6rem;font-weight:700;color:rgba(196,30,58,0.35);line-height:1;">炁</span></div>`;
   const excerpt = a.excerpt || '';
-  return `<a href="article.html?id=${a.id}" class="article-featured reveal">
+  return `<a href="article.html?id=${a.id}" class="article-featured visible">
     <div class="article-featured-img"><div class="article-featured-img-inner">${thumb}</div></div>
     <div class="article-featured-body">
       <p class="article-featured-tag">${a.category} · 精选</p>
