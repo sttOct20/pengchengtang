@@ -7,6 +7,7 @@ $articles = loadArticles();
 $id = isset($_POST['id']) ? $_POST['id'] : '';
 $title = trim(isset($_POST['title']) ? $_POST['title'] : '');
 $category = isset($_POST['category']) ? $_POST['category'] : '';
+$author = trim(isset($_POST['author']) ? $_POST['author'] : '');
 $publishedDate = isset($_POST['publishedDate']) ? $_POST['publishedDate'] : date('Y-m-d');
 $excerpt = trim(isset($_POST['excerpt']) ? $_POST['excerpt'] : '');
 $content = isset($_POST['content']) ? $_POST['content'] : '';
@@ -19,6 +20,7 @@ if ($id) {
         if ($articles[$i]['id'] === $id) {
             $articles[$i]['title'] = $title;
             $articles[$i]['category'] = $category;
+            $articles[$i]['author'] = $author;
             $articles[$i]['publishedDate'] = $publishedDate;
             $articles[$i]['excerpt'] = $excerpt;
             $articles[$i]['content'] = $content;
@@ -35,6 +37,7 @@ if ($id) {
         'slug' => $slug,
         'title' => $title,
         'category' => $category,
+        'author' => $author,
         'publishedDate' => $publishedDate,
         'excerpt' => $excerpt,
         'content' => $content,

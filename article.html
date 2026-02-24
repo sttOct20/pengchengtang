@@ -217,13 +217,17 @@ async function loadArticle() {
       ? `<img src="${article.thumbnail}" alt="${article.title}">`
       : `<div class="article-hero-ph">炁</div>`;
 
+    const author = article.author ? article.author : '彭城堂医师团队';
+    const metaParts = [author];
+    if (article.publishedDate) metaParts.push(article.publishedDate);
+
     main.innerHTML = `
       <div class="article-hero">
         ${heroImg}
         <div class="article-hero-content">
           <p class="article-hero-tag">${article.category || ''}</p>
           <h1 class="article-hero-title">${article.title}</h1>
-          <p class="article-hero-meta">彭城堂医师团队 &ensp;·&ensp; ${article.publishedDate || ''}</p>
+          <p class="article-hero-meta">${metaParts.join(' &ensp;·&ensp; ')}</p>
         </div>
       </div>
       <div class="article-body">

@@ -4,7 +4,7 @@ require_once 'config.php';
 if (!isset($_SESSION['admin'])) { header('Location: login.php'); exit; }
 
 $articles = loadArticles();
-$cats = array('全部','炁针疗法','辨证施治','疑难杂症','健康养生','中药本草');
+$cats = array_merge(array('全部'), loadCategories());
 $filter = isset($_GET['cat']) ? $_GET['cat'] : '全部';
 
 if ($filter === '全部') {
@@ -36,6 +36,8 @@ body{font-family:'PingFang SC',sans-serif;background:#f7f7f7;color:#333}
 .toolbar{display:flex;align-items:center;gap:12px;margin-bottom:24px;flex-wrap:wrap}
 .btn-new{background:#C41E3A;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;font-size:.9rem}
 .btn-new:hover{background:#a01830}
+.btn-cats{padding:10px 18px;border-radius:6px;text-decoration:none;font-size:.9rem;border:1px solid #ddd;background:#fff;color:#555}
+.btn-cats:hover{background:#f5f5f5}
 .cats{display:flex;gap:8px;flex-wrap:wrap}
 .cat{padding:6px 14px;border-radius:20px;border:1px solid #ddd;background:#fff;font-size:.85rem;text-decoration:none;color:#555}
 .cat.active,.cat:hover{background:#C41E3A;color:#fff;border-color:#C41E3A}
@@ -63,6 +65,7 @@ body{font-family:'PingFang SC',sans-serif;background:#f7f7f7;color:#333}
 <div class="main">
   <div class="toolbar">
     <a href="edit.php" class="btn-new">+ 新建文章</a>
+    <a href="categories.php" class="btn-cats">分类管理</a>
     <div class="cats">
       <?php foreach ($cats as $c): ?>
       <a href="?cat=<?php echo urlencode($c); ?>" class="cat <?php echo $filter===$c?'active':''; ?>"><?php echo $c; ?></a>
