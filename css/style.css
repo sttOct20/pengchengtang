@@ -243,10 +243,11 @@ h1, h2, h3, h4 { font-weight: 600; line-height: 1.3; }
   object-fit: contain;
 }
 .hero-label {
-  font-size: 0.72rem;
-  letter-spacing: 0.4em;
+  font-size: clamp(1.1rem, 2.8vw, 1.8rem);
+  letter-spacing: 0.25em;
   color: var(--gold);
-  text-transform: uppercase;
+  font-weight: 600;
+  font-family: var(--font-zh);
   margin-bottom: 20px;
 }
 .hero-title {
@@ -282,9 +283,9 @@ h1, h2, h3, h4 { font-weight: 600; line-height: 1.3; }
 .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 .hero-scroll {
   position: absolute;
-  bottom: 36px; left: 50%;
+  bottom: 120px; left: 50%;
   transform: translateX(-50%);
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.75);
   font-size: 0.72rem;
   letter-spacing: 0.25em;
   display: flex;
@@ -296,7 +297,7 @@ h1, h2, h3, h4 { font-weight: 600; line-height: 1.3; }
 .hero-scroll::after {
   content: '';
   width: 1px; height: 40px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.75), transparent);
 }
 @keyframes scrollPulse {
   0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
@@ -306,17 +307,21 @@ h1, h2, h3, h4 { font-weight: 600; line-height: 1.3; }
 /* ── Highlights Strip ── */
 .highlights {
   background: var(--black);
-  padding: 48px 0;
   border-top: 1px solid rgba(255,255,255,0.06);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
 }
 .highlights-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
 }
 .highlight-item {
   text-align: center;
-  padding: 24px 32px;
+  padding: 20px 32px;
   border-right: 1px solid rgba(255,255,255,0.08);
 }
 .highlight-item:last-child { border-right: none; }
@@ -326,6 +331,7 @@ h1, h2, h3, h4 { font-weight: 600; line-height: 1.3; }
   color: var(--red);
   line-height: 1;
   margin-bottom: 8px;
+  font-family: var(--font-zh);
 }
 .highlight-label { font-size: 0.85rem; color: rgba(255,255,255,0.55); letter-spacing: 0.1em; }
 
