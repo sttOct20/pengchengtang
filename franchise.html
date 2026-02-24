@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>招商加盟 — 彭城堂中医</title>
+  <meta name="description" content="彭城堂中医招商加盟，七大赋能体系全面支持，携手传承中医之道。" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    .process-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:0; position:relative; }
+    .process-grid::before { content:''; position:absolute; top:36px; left:10%; right:10%; height:1px; background:var(--border); z-index:0; }
+    .process-item { text-align:center; padding:0 16px 0; position:relative; z-index:1; }
+    .process-dot { width:72px; height:72px; border-radius:50%; background:#fff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-family:var(--font-en); font-size:1.3rem; font-weight:700; color:var(--red); transition:all 0.3s; }
+    .process-item:hover .process-dot { background:var(--red); color:#fff; border-color:var(--red); }
+    .process-title { font-size:0.95rem; font-weight:600; margin-bottom:8px; }
+    .process-desc { font-size:0.82rem; color:var(--gray); line-height:1.7; }
+    .form-wrap { background:var(--cream); padding:64px; max-width:760px; margin:0 auto; }
+    @media(max-width:900px) { .process-grid { grid-template-columns:repeat(3,1fr); gap:32px; } .process-grid::before { display:none; } .form-wrap { padding:40px 28px; } }
+    @media(max-width:600px) { .process-grid { grid-template-columns:1fr 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="彭城堂中医" class="nav-logo-img" />
+      <span class="nav-logo-text" data-zh="彭城堂中医" data-en="Pengchengtang TCM">彭城堂中医</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-zh="首页" data-en="Home">首页</a></li>
+      <li><a href="about.html" data-zh="品牌介绍" data-en="About">品牌介绍</a></li>
+      <li><a href="clinics.html" data-zh="门诊展示" data-en="Clinics">门诊展示</a></li>
+      <li><a href="learning.html" data-zh="健康学堂" data-en="Learning">健康学堂</a></li>
+      <li><a href="franchise.html" class="active" data-zh="招商加盟" data-en="Franchise">招商加盟</a></li>
+      <li><a href="contact.html" data-zh="联系我们" data-en="Contact">联系我们</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle">EN</button>
+      <button class="nav-hamburger" id="hamburger" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="index.html" data-zh="首页" data-en="Home">首页</a>
+  <a href="about.html" data-zh="品牌介绍" data-en="About">品牌介绍</a>
+  <a href="clinics.html" data-zh="门诊展示" data-en="Clinics">门诊展示</a>
+  <a href="learning.html" data-zh="健康学堂" data-en="Learning">健康学堂</a>
+  <a href="franchise.html" data-zh="招商加盟" data-en="Franchise">招商加盟</a>
+  <a href="contact.html" data-zh="联系我们" data-en="Contact">联系我们</a>
+  <button class="lang-toggle" id="mobileLangToggle" style="align-self:flex-start;margin-top:8px;">EN</button>
+</div>
+
+<main>
+
+<!-- HERO -->
+<section class="franchise-hero" style="min-height:80vh;display:flex;align-items:center;">
+  <div class="container" style="position:relative;z-index:1;width:100%;">
+    <div style="max-width:700px;" class="reveal">
+      <p class="section-label" style="color:rgba(201,169,110,0.9);letter-spacing:0.35em;" data-zh="招商加盟" data-en="Franchise Partnership">招商加盟</p>
+      <h1 style="font-size:clamp(2rem,5vw,3.6rem);color:#fff;font-weight:700;line-height:1.25;margin-bottom:24px;"
+          data-zh="与彭城堂共同传承<br>中医之道" data-en="Partner With Pengchengtang<br>Carry TCM Forward">与彭城堂共同传承<br>中医之道</h1>
+      <p style="font-size:1.05rem;color:rgba(255,255,255,0.55);line-height:2;margin-bottom:40px;max-width:560px;"
+         data-zh="依托200年家学传承与炁针门学术体系，彭城堂为合作伙伴提供七大维度的全面赋能，从品牌到运营，并肩同行。"
+         data-en="Built on 200 years of heritage and the Qi Acupuncture academic system, Pengchengtang offers seven dimensions of comprehensive support — from brand to operations.">
+        依托200年家学传承与炁针门学术体系，彭城堂为合作伙伴提供七大维度的全面赋能，从品牌到运营，并肩同行。
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="#empowerment" class="btn btn-primary" data-zh="查看赋能体系" data-en="View Empowerment">查看赋能体系</a>
+        <a href="#form" class="btn btn-outline" data-zh="立即申请加盟" data-en="Apply Now">立即申请加盟</a>
+      </div>
+    </div>
+    <!-- stats -->
+    <div style="display:grid;grid-template-columns:repeat(3,auto);gap:48px;margin-top:72px;padding-top:48px;border-top:1px solid rgba(255,255,255,0.1);width:fit-content;" class="reveal">
+      <div>
+        <div style="font-size:2.2rem;font-weight:700;color:var(--red);line-height:1;">200<span style="font-size:1.1rem;">+</span></div>
+        <div style="font-size:0.8rem;color:rgba(255,255,255,0.45);letter-spacing:0.12em;margin-top:6px;" data-zh="年品牌传承" data-en="Years of Heritage">年品牌传承</div>
+      </div>
+      <div>
+        <div style="font-size:2.2rem;font-weight:700;color:var(--red);line-height:1;">7</div>
+        <div style="font-size:0.8rem;color:rgba(255,255,255,0.45);letter-spacing:0.12em;margin-top:6px;" data-zh="大赋能维度" data-en="Empowerment Dimensions">大赋能维度</div>
+      </div>
+      <div>
+        <div style="font-size:2.2rem;font-weight:700;color:var(--red);line-height:1;">万<span style="font-size:1.1rem;">+</span></div>
+        <div style="font-size:0.8rem;color:rgba(255,255,255,0.45);letter-spacing:0.12em;margin-top:6px;" data-zh="培训中医人才" data-en="TCM Practitioners Trained">培训中医人才</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEVEN EMPOWERMENT -->
+<section class="section" id="empowerment">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label" data-zh="七大赋能体系" data-en="Seven Empowerment Systems">七大赋能体系</p>
+      <h2 class="section-title" data-zh="从品牌到运营，全维度并肩" data-en="Full-Spectrum Support, Side by Side">从品牌到运营，全维度并肩</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc" data-zh="彭城堂为每一位合作伙伴提供七个维度的系统性支持，降低经营风险，提升运营效率。" data-en="Pengchengtang provides seven dimensions of systematic support to reduce operational risk and increase efficiency.">彭城堂为每一位合作伙伴提供七个维度的系统性支持，降低经营风险，提升运营效率。</p>
+    </div>
+    <div class="empowerment-grid reveal">
+
+      <div class="empowerment-item">
+        <div class="emp-num">01</div>
+        <h3 class="emp-title" data-zh="品牌赋能" data-en="Brand Empowerment">品牌赋能</h3>
+        <p class="emp-desc" data-zh="共享彭城堂200年品牌资产，统一VI体系与品牌形象，快速建立本地市场认知与信任。" data-en="Share Pengchengtang's 200-year brand equity, unified visual identity, and rapid local market recognition.">共享彭城堂200年品牌资产，统一VI体系与品牌形象，快速建立本地市场认知与信任。</p>
+      </div>
+
+      <div class="empowerment-item">
+        <div class="emp-num">02</div>
+        <h3 class="emp-title" data-zh="运营赋能" data-en="Operations Empowerment">运营赋能</h3>
+        <p class="emp-desc" data-zh="成熟的门诊运营流程与标准化管理体系，帮助合作伙伴快速落地，减少试错成本。" data-en="Proven clinic operation workflows and standardized management systems for fast setup and minimal trial-and-error.">成熟的门诊运营流程与标准化管理体系，帮助合作伙伴快速落地，减少试错成本。</p>
+      </div>
+
+      <div class="empowerment-item">
+        <div class="emp-num">03</div>
+        <h3 class="emp-title" data-zh="团队管理" data-en="Team Management">团队管理</h3>
+        <p class="emp-desc" data-zh="系统化的人才培训与团队搭建方案，从招募到考核，全程提供专业指导与支持。" data-en="Systematic talent training and team-building programs — from recruitment to performance review with full guidance.">系统化的人才培训与团队搭建方案，从招募到考核，全程提供专业指导与支持。</p>
+      </div>
+
+      <div class="empowerment-item">
+        <div class="emp-num">04</div>
+        <h3 class="emp-title" data-zh="营销赋能" data-en="Marketing Empowerment">营销赋能</h3>
+        <p class="emp-desc" data-zh="提供成熟的本地化营销方案、内容素材与投放策略，助力合作伙伴高效获客。" data-en="Proven localized marketing plans, content assets, and ad strategies to help partners acquire patients efficiently.">提供成熟的本地化营销方案、内容素材与投放策略，助力合作伙伴高效获客。</p>
+      </div>
+
+      <div class="empowerment-item">
+        <div class="emp-num">05</div>
+        <h3 class="emp-title" data-zh="日常运营" data-en="Daily Operations">日常运营</h3>
+        <p class="emp-desc" data-zh="持续的日常运营督导与问题响应机制，总部专职团队随时响应合作伙伴的运营需求。" data-en="Ongoing operational supervision and rapid issue-response system — headquarter team always available for partners.">持续的日常运营督导与问题响应机制，总部专职团队随时响应合作伙伴的运营需求。</p>
+      </div>
+
+      <div class="empowerment-item">
+        <div class="emp-num">06</div>
+        <h3 class="emp-title" data-zh="产品赋能" data-en="Product Empowerment">产品赋能</h3>
+        <p class="emp-desc" data-zh="提供彭城堂自研中药产品与诊疗耗材的稳定供应链，保障用料品质，增强诊疗竞争力。" data-en="Stable supply chain for Pengchengtang proprietary herbal products and consumables — guaranteed quality and competitive advantage.">提供彭城堂自研中药产品与诊疗耗材的稳定供应链，保障用料品质，增强诊疗竞争力。</p>
+      </div>
+
+      <div class="empowerment-item" style="grid-column:span 2;">
+        <div class="emp-num">07</div>
+        <h3 class="emp-title" data-zh="工具赋能" data-en="Technology Empowerment">工具赋能</h3>
+        <p class="emp-desc" data-zh="提供门诊管理系统、患者管理工具及数字化运营平台，降低人力成本，提升管理效率与患者体验。" data-en="Clinic management systems, patient relationship tools, and digital operations platforms — reducing labor costs and improving efficiency and patient experience.">提供门诊管理系统、患者管理工具及数字化运营平台，降低人力成本，提升管理效率与患者体验。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section section--gray">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label" data-zh="加盟流程" data-en="Partnership Process">加盟流程</p>
+      <h2 class="section-title" data-zh="五步开启合作之旅" data-en="Five Steps to Partnership">五步开启合作之旅</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="process-grid reveal">
+      <div class="process-item">
+        <div class="process-dot">01</div>
+        <h4 class="process-title" data-zh="提交意向" data-en="Submit Inquiry">提交意向</h4>
+        <p class="process-desc" data-zh="填写加盟意向表单，留下联系方式。" data-en="Fill in the inquiry form with your contact details.">填写加盟意向表单，留下联系方式。</p>
+      </div>
+      <div class="process-item">
+        <div class="process-dot">02</div>
+        <h4 class="process-title" data-zh="资质审核" data-en="Qualification Review">资质审核</h4>
+        <p class="process-desc" data-zh="总部团队与您沟通，进行合作资质评估。" data-en="Our team contacts you to assess partnership qualifications.">总部团队与您沟通，进行合作资质评估。</p>
+      </div>
+      <div class="process-item">
+        <div class="process-dot">03</div>
+        <h4 class="process-title" data-zh="签订协议" data-en="Sign Agreement">签订协议</h4>
+        <p class="process-desc" data-zh="双方确认合作细节，正式签署加盟协议。" data-en="Confirm cooperation details and formally sign the franchise agreement.">双方确认合作细节，正式签署加盟协议。</p>
+      </div>
+      <div class="process-item">
+        <div class="process-dot">04</div>
+        <h4 class="process-title" data-zh="系统培训" data-en="System Training">系统培训</h4>
+        <p class="process-desc" data-zh="总部提供全面的品牌、运营与技术培训。" data-en="Headquarters provides comprehensive brand, operations, and technical training.">总部提供全面的品牌、运营与技术培训。</p>
+      </div>
+      <div class="process-item">
+        <div class="process-dot">05</div>
+        <h4 class="process-title" data-zh="正式开业" data-en="Grand Opening">正式开业</h4>
+        <p class="process-desc" data-zh="总部驻场督导，协助顺利开业并持续赋能。" data-en="Headquarters on-site support for smooth opening and ongoing empowerment.">总部驻场督导，协助顺利开业并持续赋能。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="section" id="form">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label" data-zh="申请加盟" data-en="Apply Now">申请加盟</p>
+      <h2 class="section-title" data-zh="留下您的联系方式" data-en="Leave Your Contact Details">留下您的联系方式</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc" data-zh="填写以下信息，我们将在1-2个工作日内与您联系。" data-en="Fill in the form below and we will contact you within 1-2 business days.">填写以下信息，我们将在1-2个工作日内与您联系。</p>
+    </div>
+
+    <div class="form-wrap reveal">
+      <form id="franchiseForm" action="https://formsubmit.co/173992289@qq.com" method="POST">
+        <!-- FormSubmit config -->
+        <input type="hidden" name="_subject" value="彭城堂官网 — 新加盟意向申请" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value="" />
+        <input type="text" name="_honey" style="display:none" />
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label data-zh="姓名 *" data-en="Name *">姓名 *</label>
+            <input type="text" name="姓名" required
+                   data-ph-zh="请输入您的姓名" data-ph-en="Your full name"
+                   placeholder="请输入您的姓名" />
+          </div>
+          <div class="form-group">
+            <label data-zh="手机号 *" data-en="Phone *">手机号 *</label>
+            <input type="tel" name="手机号" required
+                   data-ph-zh="请输入手机号码" data-ph-en="Your phone number"
+                   placeholder="请输入手机号码" />
+          </div>
+          <div class="form-group">
+            <label data-zh="所在城市 *" data-en="City *">所在城市 *</label>
+            <input type="text" name="所在城市" required
+                   data-ph-zh="如：上海市" data-ph-en="e.g. Shanghai"
+                   placeholder="如：上海市" />
+          </div>
+          <div class="form-group">
+            <label data-zh="意向投资规模" data-en="Investment Scale">意向投资规模</label>
+            <select name="意向投资规模">
+              <option value="" data-zh="请选择" data-en="Please select">请选择</option>
+              <option value="50万以内" data-zh="50万元以内" data-en="Under ¥500K">50万元以内</option>
+              <option value="50-100万" data-zh="50—100万元" data-en="¥500K–¥1M">50—100万元</option>
+              <option value="100-200万" data-zh="100—200万元" data-en="¥1M–¥2M">100—200万元</option>
+              <option value="200万以上" data-zh="200万元以上" data-en="Above ¥2M">200万元以上</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label data-zh="留言（选填）" data-en="Message (optional)">留言（选填）</label>
+            <textarea name="留言" rows="4"
+                      data-ph-zh="请简述您的合作意向或问题…" data-ph-en="Briefly describe your cooperation intention or questions…"
+                      placeholder="请简述您的合作意向或问题…"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit" data-zh="提交加盟申请" data-en="Submit Application">提交加盟申请</button>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <p style="font-size:1.1rem;font-weight:600;margin-bottom:8px;" data-zh="申请已提交！" data-en="Application Submitted!">申请已提交！</p>
+        <p style="font-size:0.9rem;color:#555;" data-zh="感谢您的关注，我们将在1-2个工作日内联系您。" data-en="Thank you for your interest. We will contact you within 1-2 business days.">感谢您的关注，我们将在1-2个工作日内联系您。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/logo.png" alt="彭城堂中医" class="footer-logo" />
+        <p class="footer-brand-name" data-zh="彭城堂中医" data-en="Pengchengtang TCM">彭城堂中医</p>
+        <p class="footer-brand-desc" data-zh="立足家学传承，扎根真实临床。以非遗炁针疗法为核心，守正创新，惠及大众。" data-en="Rooted in generational heritage and authentic clinical practice. Bringing authentic TCM to modern life.">立足家学传承，扎根真实临床。以非遗炁针疗法为核心，守正创新，惠及大众。</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-zh="快速导航" data-en="Navigation">快速导航</h4>
+        <ul>
+          <li><a href="about.html" data-zh="品牌介绍" data-en="About">品牌介绍</a></li>
+          <li><a href="clinics.html" data-zh="门诊展示" data-en="Clinics">门诊展示</a></li>
+          <li><a href="learning.html" data-zh="健康学堂" data-en="Learning">健康学堂</a></li>
+          <li><a href="franchise.html" data-zh="招商加盟" data-en="Franchise">招商加盟</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-zh="联系方式" data-en="Contact">联系方式</h4>
+        <ul>
+          <li><a href="tel:4000860131">400-086-0131</a></li>
+          <li><a href="contact.html" data-zh="扫码加企业微信" data-en="WeChat QR Code">扫码加企业微信</a></li>
+          <li><a href="mailto:173992289@qq.com">173992289@qq.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-zh="在线学习" data-en="Online Learning">在线学习</h4>
+        <ul>
+          <li><a href="https://learn.pengchengtangtcm.com" target="_blank" rel="noopener" data-zh="炁针学习平台" data-en="Qi Acupuncture Academy">炁针学习平台</a></li>
+          <li><a href="learning.html" data-zh="健康文章" data-en="Health Articles">健康文章</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-zh="© 2025 彭城堂中医 版权所有" data-en="© 2025 Pengchengtang TCM. All Rights Reserved.">© 2025 彭城堂中医 版权所有</span>
+      <span data-zh="传承中医，守护健康" data-en="Preserving TCM Heritage, Protecting Health">传承中医，守护健康</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

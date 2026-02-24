@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>联系我们 — 彭城堂中医</title>
+  <meta name="description" content="联系彭城堂中医：扫码加企业微信预约就诊，或致电北京、哈尔滨、珠海三地门诊。" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* QR Hero */
+    .qr-hero {
+      background: var(--black);
+      padding: 100px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .qr-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 60%, rgba(196,30,58,0.18) 0%, transparent 65%);
+    }
+    .qr-hero-inner { position: relative; z-index: 1; }
+    .qr-frame {
+      display: inline-block;
+      padding: 16px;
+      background: #fff;
+      margin: 36px auto;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 24px 64px rgba(0,0,0,0.5);
+    }
+    .qr-frame img { width: 220px; height: 220px; display: block; object-fit: contain; }
+    .qr-placeholder {
+      width: 220px; height: 220px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      background: var(--cream);
+      color: var(--gray);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      gap: 12px;
+    }
+    /* Contact info grid */
+    .contact-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--border);
+    }
+    .contact-block {
+      background: #fff;
+      padding: 64px 56px;
+    }
+    .contact-block-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    /* Clinic list */
+    .clinic-list { display: flex; flex-direction: column; gap: 0; }
+    .clinic-list-item {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .clinic-list-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .clinic-list-num {
+      font-family: var(--font-en);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--red);
+      opacity: 0.5;
+      padding-top: 3px;
+      width: 24px;
+    }
+    .clinic-list-city {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .clinic-list-name { font-size: 1rem; font-weight: 600; margin-bottom: 10px; }
+    .clinic-list-addr { font-size: 0.88rem; color: #555; line-height: 1.8; margin-bottom: 6px; }
+    .clinic-list-phone a { font-size: 0.9rem; color: var(--red); font-weight: 600; letter-spacing: 0.05em; }
+    .clinic-list-phone a:hover { opacity: 0.75; }
+    /* Map links */
+    .map-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.78rem; letter-spacing: 0.1em;
+      color: var(--gray); margin-top: 8px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .map-link:hover { color: var(--black); border-color: var(--black); }
+    /* WeChat block extras */
+    .wechat-hint {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 16px 20px;
+      background: var(--cream);
+      border-left: 3px solid var(--red);
+      margin-top: 32px;
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.8;
+    }
+    .wechat-hint-icon { color: var(--red); font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+
+    @media (max-width: 860px) {
+      .contact-section { grid-template-columns: 1fr; }
+      .contact-block { padding: 48px 28px; }
+      .qr-frame img { width: 180px; height: 180px; }
+      .qr-placeholder { width: 180px; height: 180px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="彭城堂中医" class="nav-logo-img" />
+      <span class="nav-logo-text" data-zh="彭城堂中医" data-en="Pengchengtang TCM">彭城堂中医</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-zh="首页" data-en="Home">首页</a></li>
+      <li><a href="about.html" data-zh="品牌介绍" data-en="About">品牌介绍</a></li>
+      <li><a href="clinics.html" data-zh="门诊展示" data-en="Clinics">门诊展示</a></li>
+      <li><a href="learning.html" data-zh="健康学堂" data-en="Learning">健康学堂</a></li>
+      <li><a href="franchise.html" data-zh="招商加盟" data-en="Franchise">招商加盟</a></li>
+      <li><a href="contact.html" class="active" data-zh="联系我们" data-en="Contact">联系我们</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle">EN</button>
+      <button class="nav-hamburger" id="hamburger" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="index.html" data-zh="首页" data-en="Home">首页</a>
+  <a href="about.html" data-zh="品牌介绍" data-en="About">品牌介绍</a>
+  <a href="clinics.html" data-zh="门诊展示" data-en="Clinics">门诊展示</a>
+  <a href="learning.html" data-zh="健康学堂" data-en="Learning">健康学堂</a>
+  <a href="franchise.html" data-zh="招商加盟" data-en="Franchise">招商加盟</a>
+  <a href="contact.html" data-zh="联系我们" data-en="Contact">联系我们</a>
+  <button class="lang-toggle" id="mobileLangToggle" style="align-self:flex-start;margin-top:8px;">EN</button>
+</div>
+
+<main>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="page-header-content">
+    <p class="page-header-label" data-zh="联系我们" data-en="Contact Us">联系我们</p>
+    <h1 data-zh="预约就诊，从这里开始" data-en="Your Health Journey Starts Here">预约就诊，从这里开始</h1>
+  </div>
+</section>
+
+<!-- QR HERO -->
+<section class="qr-hero">
+  <div class="qr-hero-inner">
+    <p class="section-label" style="color:rgba(201,169,110,0.8);letter-spacing:0.35em;"
+       data-zh="企业微信" data-en="Enterprise WeChat">企业微信</p>
+    <h2 style="font-size:clamp(1.5rem,3.5vw,2.4rem);color:#fff;margin-bottom:8px;"
+        data-zh="扫码添加，专属客服为您服务" data-en="Scan to Connect — Dedicated Support for You">扫码添加，专属客服为您服务</h2>
+    <p style="font-size:0.95rem;color:rgba(255,255,255,0.45);margin-bottom:4px;"
+       data-zh="扫描下方二维码，添加彭城堂企业微信" data-en="Scan the QR code below to add Pengchengtang's Enterprise WeChat">扫描下方二维码，添加彭城堂企业微信</p>
+
+    <div class="qr-frame">
+      <img src="assets/qrcode.png" alt="彭城堂企业微信二维码"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="qr-placeholder" style="display:none;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C41E3A" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h.01M17 14h.01M14 17h.01M17 17h.01M20 14v3M20 20v.01"/></svg>
+        <span data-zh="企业微信二维码" data-en="WeChat QR Code">企业微信二维码</span>
+      </div>
+    </div>
+
+    <p style="font-size:0.82rem;color:rgba(255,255,255,0.3);letter-spacing:0.15em;"
+       data-zh="微信扫一扫 · 预约就诊 · 加盟咨询" data-en="Scan with WeChat · Book Appointment · Franchise Inquiry">微信扫一扫 · 预约就诊 · 加盟咨询</p>
+  </div>
+</section>
+
+<!-- CONTACT DETAILS -->
+<section class="section" style="padding-top:0;">
+  <div class="container" style="padding-top:0;">
+    <div class="contact-section reveal">
+
+      <!-- Clinics Column -->
+      <div class="contact-block">
+        <p class="contact-block-title" data-zh="三地门诊" data-en="Our Clinics">三地门诊</p>
+        <div class="clinic-list">
+
+          <div class="clinic-list-item">
+            <span class="clinic-list-num">01</span>
+            <div>
+              <p class="clinic-list-city" data-zh="北京" data-en="Beijing">北京</p>
+              <h3 class="clinic-list-name" data-zh="北京彭城堂中医诊所" data-en="Beijing Pengchengtang TCM Clinic">北京彭城堂中医诊所</h3>
+              <p class="clinic-list-addr" data-zh="北京市朝阳区大郊亭中街2号院甲2号楼" data-en="Bldg A2, Yard 2, Dajiaoting Zhongjie, Chaoyang, Beijing">北京市朝阳区大郊亭中街2号院甲2号楼</p>
+              <p class="clinic-list-phone"><a href="tel:4000860131">400-086-0131</a></p>
+              <a href="https://map.baidu.com/search/北京市朝阳区大郊亭中街2号院甲2号楼" target="_blank" rel="noopener" class="map-link"
+                 data-zh="查看地图" data-en="View Map">
+                查看地图 →
+              </a>
+            </div>
+          </div>
+
+          <div class="clinic-list-item">
+            <span class="clinic-list-num">02</span>
+            <div>
+              <p class="clinic-list-city" data-zh="哈尔滨" data-en="Harbin">哈尔滨</p>
+              <h3 class="clinic-list-name" data-zh="哈尔滨彭城堂中医诊所" data-en="Harbin Pengchengtang TCM Clinic">哈尔滨彭城堂中医诊所</h3>
+              <p class="clinic-list-addr" data-zh="黑龙江省哈尔滨市平房区哈南九路万达华府C区C4栋底商" data-en="C4 Ground Floor, Wanda Huafu Block C, Hanan 9th Rd, Pingfang, Harbin">黑龙江省哈尔滨市平房区哈南九路万达华府C区C4栋底商</p>
+              <p class="clinic-list-phone"><a href="tel:13009860432">130-0986-0432</a></p>
+              <a href="https://map.baidu.com/search/哈尔滨市平房区哈南九路万达华府C区C4栋" target="_blank" rel="noopener" class="map-link"
+                 data-zh="查看地图" data-en="View Map">
+                查看地图 →
+              </a>
+            </div>
+          </div>
+
+          <div class="clinic-list-item">
+            <span class="clinic-list-num">03</span>
+            <div>
+              <p class="clinic-list-city" data-zh="珠海" data-en="Zhuhai">珠海</p>
+              <h3 class="clinic-list-name" data-zh="珠海彭城堂中医诊所" data-en="Zhuhai Pengchengtang TCM Clinic">珠海彭城堂中医诊所</h3>
+              <p class="clinic-list-addr" data-zh="广东省珠海市香洲区梅华街道前山翠微西路38号至48号1一楼商铺" data-en="Shop 1F, 38-48 Cuiwei West Rd, Qianshan, Xiangzhou, Zhuhai">广东省珠海市香洲区梅华街道前山翠微西路38号至48号1一楼商铺</p>
+              <p class="clinic-list-phone"><a href="tel:13192254098">131-9225-4098</a></p>
+              <a href="https://map.baidu.com/search/珠海市香洲区翠微西路38号" target="_blank" rel="noopener" class="map-link"
+                 data-zh="查看地图" data-en="View Map">
+                查看地图 →
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- WeChat & Info Column -->
+      <div class="contact-block" style="background:var(--cream);">
+        <p class="contact-block-title" data-zh="联系方式" data-en="Get In Touch">联系方式</p>
+
+        <!-- Primary contact -->
+        <div style="margin-bottom:40px;">
+          <p style="font-size:0.8rem;color:var(--gray);letter-spacing:0.12em;margin-bottom:6px;" data-zh="总客服热线" data-en="General Hotline">总客服热线</p>
+          <a href="tel:4000860131" style="font-size:2rem;font-weight:700;color:var(--red);letter-spacing:0.05em;display:block;margin-bottom:4px;">400-086-0131</a>
+          <p style="font-size:0.82rem;color:var(--gray);" data-zh="工作日 09:00–18:00" data-en="Mon–Fri 09:00–18:00">工作日 09:00–18:00</p>
+        </div>
+
+        <div style="width:100%;height:1px;background:var(--border);margin-bottom:36px;"></div>
+
+        <!-- Email -->
+        <div style="margin-bottom:36px;">
+          <p style="font-size:0.8rem;color:var(--gray);letter-spacing:0.12em;margin-bottom:8px;" data-zh="电子邮件" data-en="Email">电子邮件</p>
+          <a href="mailto:173992289@qq.com" style="font-size:1rem;color:var(--black);border-bottom:1px solid var(--border);padding-bottom:2px;transition:all 0.2s;">173992289@qq.com</a>
+        </div>
+
+        <!-- Franchise -->
+        <div style="margin-bottom:36px;">
+          <p style="font-size:0.8rem;color:var(--gray);letter-spacing:0.12em;margin-bottom:8px;" data-zh="招商加盟咨询" data-en="Franchise Inquiry">招商加盟咨询</p>
+          <a href="franchise.html" class="btn btn-outline-dark" style="font-size:0.82rem;padding:10px 24px;"
+             data-zh="填写加盟意向表单" data-en="Submit Franchise Inquiry">填写加盟意向表单</a>
+        </div>
+
+        <div style="width:100%;height:1px;background:var(--border);margin-bottom:28px;"></div>
+
+        <!-- Hint box -->
+        <div class="wechat-hint">
+          <span class="wechat-hint-icon">◈</span>
+          <p data-zh="推荐通过企业微信联系我们，客服响应更及时，可直接预约门诊时间、咨询诊疗方案或了解加盟详情。" data-en="We recommend contacting us via Enterprise WeChat for faster response — book appointments, consult treatment options, or inquire about franchise opportunities directly.">推荐通过企业微信联系我们，客服响应更及时，可直接预约门诊时间、咨询诊疗方案或了解加盟详情。</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/logo.png" alt="彭城堂中医" class="footer-logo" />
+        <p class="footer-brand-name" data-zh="彭城堂中医" data-en="Pengchengtang TCM">彭城堂中医</p>
+        <p class="footer-brand-desc" data-zh="立足家学传承，扎根真实临床。以非遗炁针疗法为核心，守正创新，惠及大众。" data-en="Rooted in generational heritage and authentic clinical practice. Bringing authentic TCM to modern life.">立足家学传承，扎根真实临床。以非遗炁针疗法为核心，守正创新，惠及大众。</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-zh="快速导航" data-en="Navigation">快速导航</h4>
+        <ul>
+          <li><a href="about.html" data-zh="品牌介绍" data-en="About">品牌介绍</a></li>
+          <li><a href="clinics.html" data-zh="门诊展示" data-en="Clinics">门诊展示</a></li>
+          <li><a href="learning.html" data-zh="健康学堂" data-en="Learning">健康学堂</a></li>
+          <li><a href="franchise.html" data-zh="招商加盟" data-en="Franchise">招商加盟</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-zh="门诊电话" data-en="Clinic Phones">门诊电话</h4>
+        <ul>
+          <li><a href="tel:4000860131" data-zh="北京：400-086-0131" data-en="Beijing: 400-086-0131">北京：400-086-0131</a></li>
+          <li><a href="tel:13009860432" data-zh="哈尔滨：130-0986-0432" data-en="Harbin: 130-0986-0432">哈尔滨：130-0986-0432</a></li>
+          <li><a href="tel:13192254098" data-zh="珠海：131-9225-4098" data-en="Zhuhai: 131-9225-4098">珠海：131-9225-4098</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-zh="在线学习" data-en="Online Learning">在线学习</h4>
+        <ul>
+          <li><a href="https://learn.pengchengtangtcm.com" target="_blank" rel="noopener" data-zh="炁针学习平台" data-en="Qi Acupuncture Academy">炁针学习平台</a></li>
+          <li><a href="learning.html" data-zh="健康文章" data-en="Health Articles">健康文章</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-zh="© 2025 彭城堂中医 版权所有" data-en="© 2025 Pengchengtang TCM. All Rights Reserved.">© 2025 彭城堂中医 版权所有</span>
+      <span data-zh="传承中医，守护健康" data-en="Preserving TCM Heritage, Protecting Health">传承中医，守护健康</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

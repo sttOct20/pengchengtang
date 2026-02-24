@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>健康学堂 — 彭城堂中医</title>
+  <meta name="description" content="彭城堂中医健康学堂：中医养生知识、炁针疗法解析、疑难杂症科普，专业医师撰写，免费公开阅读。" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Category Filter ── */
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .filter-btn {
+      padding: 8px 22px;
+      border: 1px solid var(--border);
+      background: transparent;
+      font-family: inherit;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      color: var(--gray);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--red);
+      border-color: var(--red);
+      color: #fff;
+    }
+    /* ── Platform Banner ── */
+    .platform-banner {
+      background: var(--black);
+      padding: 64px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .platform-banner::before {
+      content: '炁';
+      position: absolute;
+      right: 180px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 10rem;
+      font-weight: 700;
+      color: rgba(196,30,58,0.08);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .platform-banner-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .platform-banner h2 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: #fff;
+      margin-bottom: 14px;
+    }
+    .platform-banner p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.9;
+      max-width: 520px;
+    }
+    /* ── Featured Article ── */
+    .article-featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+      margin-bottom: 32px;
+      background: #fff;
+      transition: box-shadow 0.3s;
+    }
+    .article-featured:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+    .article-featured-img {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+    .article-featured-img-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .article-featured-body {
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .article-featured-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .article-featured-title {
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .article-featured-excerpt {
+      font-size: 0.92rem;
+      color: #555;
+      line-height: 2;
+      margin-bottom: 24px;
+    }
+    .article-featured-meta {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+    /* ── Pagination ── */
+    .pagination {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 56px;
+    }
+    .page-btn {
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border);
+      font-size: 0.88rem;
+      color: var(--gray);
+      cursor: pointer;
+      background: #fff;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .page-btn:hover, .page-btn.active {
+      background: var(--red);
+      border-color: var(--red);
+      color: #fff;
+    }
+    @media (max-width: 768px) {
+      .platform-banner { padding: 40px 28px; grid-template-columns: 1fr; }
+      .platform-banner::before { display: none; }
+      .article-featured { grid-template-columns: 1fr; }
+      .article-featured-body { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="彭城堂中医" class="nav-logo-img" />
+      <span class="nav-logo-text" data-zh="彭城堂中医" data-en="Pengchengtang TCM">彭城堂中医</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-zh="首页" data-en="Home">首页</a></li>
+      <li><a href="about.html" data-zh="品牌介绍" data-en="About">品牌介绍</a></li>
+      <li><a href="clinics.html" data-zh="门诊展示" data-en="Clinics">门诊展示</a></li>
+      <li><a href="learning.html" class="active" data-zh="健康学堂" data-en="Learning">健康学堂</a></li>
+      <li><a href="franchise.html" data-zh="招商加盟" data-en="Franchise">招商加盟</a></li>
+      <li><a href="contact.html" data-zh="联系我们" data-en="Contact">联系我们</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle">EN</button>
+      <button class="nav-hamburger" id="hamburger" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="index.html" data-zh="首页" data-en="Home">首页</a>
+  <a href="about.html" data-zh="品牌介绍" data-en="About">品牌介绍</a>
+  <a href="clinics.html" data-zh="门诊展示" data-en="Clinics">门诊展示</a>
+  <a href="learning.html" data-zh="健康学堂" data-en="Learning">健康学堂</a>
+  <a href="franchise.html" data-zh="招商加盟" data-en="Franchise">招商加盟</a>
+  <a href="contact.html" data-zh="联系我们" data-en="Contact">联系我们</a>
+  <button class="lang-toggle" id="mobileLangToggle" style="align-self:flex-start;margin-top:8px;">EN</button>
+</div>
+
+<main>
+
+<!-- ══ PAGE HEADER ══ -->
+<section class="page-header">
+  <div class="page-header-content">
+    <p class="page-header-label" data-zh="健康学堂" data-en="Health Academy">健康学堂</p>
+    <h1 data-zh="中医知识，触手可及" data-en="TCM Knowledge, Within Reach">中医知识，触手可及</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- ══ PLATFORM BANNER ══ -->
+    <div class="platform-banner reveal">
+      <div>
+        <p class="platform-banner-label" data-zh="在线课程平台" data-en="Online Learning Platform">在线课程平台</p>
+        <h2 data-zh="炁针在线学习平台" data-en="Qi Acupuncture Online Academy">炁针在线学习平台</h2>
+        <p data-zh="系统化中医学习路径，由彭城堂传承人亲授，涵盖炁针疗法、六维舌诊、辨证施治等核心体系。适合中医学习者及现有患者深入了解中医诊疗理念。"
+           data-en="A structured TCM learning path taught by Pengchengtang heritage practitioners. Covering Qi Acupuncture, Six-Dimension Tongue Diagnosis, and pattern differentiation — for practitioners and patients alike.">
+          系统化中医学习路径，由彭城堂传承人亲授，涵盖炁针疗法、六维舌诊、辨证施治等核心体系。适合中医学习者及现有患者深入了解中医诊疗理念。
+        </p>
+      </div>
+      <div style="flex-shrink:0;position:relative;z-index:1;">
+        <a href="https://learn.pengchengtangtcm.com" target="_blank" rel="noopener"
+           class="btn btn-primary" style="white-space:nowrap;font-size:1rem;padding:16px 40px;"
+           data-zh="立即进入学习" data-en="Enter Academy">立即进入学习</a>
+      </div>
+    </div>
+
+    <!-- ══ ARTICLE FILTER ══ -->
+    <div class="reveal">
+      <p class="section-label" data-zh="健康文章" data-en="Health Articles">健康文章</p>
+      <h2 class="section-title" style="margin-bottom:28px;" data-zh="专业医师撰写，免费公开阅读" data-en="Written by Practitioners, Free to Read">专业医师撰写，免费公开阅读</h2>
+      <div class="section-divider" style="margin:0 0 40px;"></div>
+
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-btn active" data-cat="all" data-zh="全部" data-en="All">全部</button>
+        <button class="filter-btn" data-cat="qizhen" data-zh="炁针疗法" data-en="Qi Acupuncture">炁针疗法</button>
+        <button class="filter-btn" data-cat="tongue" data-zh="舌诊辨证" data-en="Tongue Diagnosis">舌诊辨证</button>
+        <button class="filter-btn" data-cat="complex" data-zh="疑难杂症" data-en="Complex Conditions">疑难杂症</button>
+        <button class="filter-btn" data-cat="wellness" data-zh="中医养生" data-en="Wellness">中医养生</button>
+        <button class="filter-btn" data-cat="herbs" data-zh="本草药材" data-en="Herbal Medicine">本草药材</button>
+      </div>
+    </div>
+
+    <!-- ══ FEATURED ARTICLE ══ -->
+    <a href="#" class="article-featured reveal" data-cat="qizhen">
+      <div class="article-featured-img">
+        <div class="article-featured-img-inner" style="background:linear-gradient(135deg,#0f0505,#3d0a0a);">
+          <span style="font-size:6rem;font-weight:700;color:rgba(196,30,58,0.35);line-height:1;">炁</span>
+        </div>
+      </div>
+      <div class="article-featured-body">
+        <p class="article-featured-tag" data-zh="炁针疗法 · 精选" data-en="Qi Acupuncture · Featured">炁针疗法 · 精选</p>
+        <h2 class="article-featured-title"
+            data-zh="什么是炁针？彭城堂炁针门核心疗法全解析"
+            data-en="What is Qi Acupuncture? A Complete Guide to Pengchengtang's Core Therapy">
+          什么是炁针？彭城堂炁针门核心疗法全解析
+        </h2>
+        <p class="article-featured-excerpt"
+           data-zh="炁针疗法是彭城堂中医独创的非遗级针法体系，以"炁"为核心理念，结合传统经络理论与现代临床实践，形成了一套诊断精准、疗效显著的针灸治疗体系……"
+           data-en="Qi Acupuncture is Pengchengtang's proprietary intangible heritage acupuncture system. Centered on the concept of 'Qi', it integrates classical meridian theory with modern clinical practice to achieve precise diagnosis and remarkable therapeutic results...">
+          炁针疗法是彭城堂中医独创的非遗级针法体系，以"炁"为核心理念，结合传统经络理论与现代临床实践，形成了一套诊断精准、疗效显著的针灸治疗体系……
+        </p>
+        <p class="article-featured-meta">
+          <span data-zh="彭城堂医师团队" data-en="Pengchengtang Medical Team">彭城堂医师团队</span>
+          &ensp;·&ensp;
+          <span>2025-01-15</span>
+        </p>
+      </div>
+    </a>
+
+    <!-- ══ ARTICLES GRID ══ -->
+    <div class="articles-grid" id="articlesGrid">
+
+      <a href="#" class="article-card" data-cat="tongue">
+        <div class="article-card-img">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a1a0a,#1a3d1a);display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:3.5rem;color:rgba(30,120,30,0.35);font-weight:700;">舌</span>
+          </div>
+        </div>
+        <div class="article-card-body">
+          <p class="article-card-tag" data-zh="舌诊辨证" data-en="Tongue Diagnosis">舌诊辨证</p>
+          <h4 class="article-card-title" data-zh="六维舌诊：从舌象读懂身体的隐性信号" data-en="Six-Dimension Tongue Diagnosis: Reading Your Body's Hidden Signals">六维舌诊：从舌象读懂身体的隐性信号</h4>
+          <p class="article-card-date">2025-01-08</p>
+        </div>
+      </a>
+
+      <a href="#" class="article-card" data-cat="complex">
+        <div class="article-card-img">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0f1a,#1a2a3d);display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:3.5rem;color:rgba(30,60,150,0.35);font-weight:700;">针</span>
+          </div>
+        </div>
+        <div class="article-card-body">
+          <p class="article-card-tag" data-zh="疑难杂症" data-en="Complex Conditions">疑难杂症</p>
+          <h4 class="article-card-title" data-zh="针药并举：中医如何系统攻克顽固性疾病" data-en="Acupuncture & Herbs: Tackling Stubborn Chronic Disease">针药并举：中医如何系统攻克顽固性疾病</h4>
+          <p class="article-card-date">2024-12-28</p>
+        </div>
+      </a>
+
+      <a href="#" class="article-card" data-cat="wellness">
+        <div class="article-card-img">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1205,#3d2a0a);display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:3.5rem;color:rgba(180,120,20,0.35);font-weight:700;">养</span>
+          </div>
+        </div>
+        <div class="article-card-body">
+          <p class="article-card-tag" data-zh="中医养生" data-en="Wellness">中医养生</p>
+          <h4 class="article-card-title" data-zh="顺时养生：二十四节气与中医调理指南" data-en="Seasonal Wellness: TCM Guide to the 24 Solar Terms">顺时养生：二十四节气与中医调理指南</h4>
+          <p class="article-card-date">2024-12-15</p>
+        </div>
+      </a>
+
+      <a href="#" class="article-card" data-cat="qizhen">
+        <div class="article-card-img">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0505,#2d0808);display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:3.5rem;color:rgba(196,30,58,0.3);font-weight:700;">经</span>
+          </div>
+        </div>
+        <div class="article-card-body">
+          <p class="article-card-tag" data-zh="炁针疗法" data-en="Qi Acupuncture">炁针疗法</p>
+          <h4 class="article-card-title" data-zh="经络与炁：理解炁针疗法的理论基础" data-en="Meridians & Qi: The Theoretical Foundation of Qi Acupuncture">经络与炁：理解炁针疗法的理论基础</h4>
+          <p class="article-card-date">2024-12-05</p>
+        </div>
+      </a>
+
+      <a href="#" class="article-card" data-cat="herbs">
+        <div class="article-card-img">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a1a0f,#103020);display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:3.5rem;color:rgba(20,100,50,0.35);font-weight:700;">草</span>
+          </div>
+        </div>
+        <div class="article-card-body">
+          <p class="article-card-tag" data-zh="本草药材" data-en="Herbal Medicine">本草药材</p>
+          <h4 class="article-card-title" data-zh="彭城堂用药原则：上乘选料背后的坚守" data-en="Pengchengtang's Herbal Philosophy: Commitment to Premium Quality">彭城堂用药原则：上乘选料背后的坚守</h4>
+          <p class="article-card-date">2024-11-22</p>
+        </div>
+      </a>
+
+      <a href="#" class="article-card" data-cat="complex">
+        <div class="article-card-img">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#12051a,#200a30);display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:3.5rem;color:rgba(100,30,150,0.35);font-weight:700;">病</span>
+          </div>
+        </div>
+        <div class="article-card-body">
+          <p class="article-card-tag" data-zh="疑难杂症" data-en="Complex Conditions">疑难杂症</p>
+          <h4 class="article-card-title" data-zh="五痨七伤：传统中医对慢性损耗性疾病的认识" data-en="Five Taxations & Seven Injuries: TCM on Chronic Degenerative Disease">五痨七伤：传统中医对慢性损耗性疾病的认识</h4>
+          <p class="article-card-date">2024-11-10</p>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination reveal">
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn" style="width:auto;padding:0 16px;" data-zh="下一页" data-en="Next">下一页</button>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/logo.png" alt="彭城堂中医" class="footer-logo" />
+        <p class="footer-brand-name" data-zh="彭城堂中医" data-en="Pengchengtang TCM">彭城堂中医</p>
+        <p class="footer-brand-desc" data-zh="立足家学传承，扎根真实临床。以非遗炁针疗法为核心，守正创新，惠及大众。" data-en="Rooted in generational heritage and authentic clinical practice. Bringing authentic TCM to modern life.">立足家学传承，扎根真实临床。以非遗炁针疗法为核心，守正创新，惠及大众。</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-zh="快速导航" data-en="Navigation">快速导航</h4>
+        <ul>
+          <li><a href="about.html" data-zh="品牌介绍" data-en="About">品牌介绍</a></li>
+          <li><a href="clinics.html" data-zh="门诊展示" data-en="Clinics">门诊展示</a></li>
+          <li><a href="learning.html" data-zh="健康学堂" data-en="Learning">健康学堂</a></li>
+          <li><a href="franchise.html" data-zh="招商加盟" data-en="Franchise">招商加盟</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-zh="联系方式" data-en="Contact">联系方式</h4>
+        <ul>
+          <li><a href="tel:4000860131">400-086-0131</a></li>
+          <li><a href="contact.html" data-zh="扫码加企业微信" data-en="WeChat QR Code">扫码加企业微信</a></li>
+          <li><a href="mailto:173992289@qq.com">173992289@qq.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-zh="在线学习" data-en="Online Learning">在线学习</h4>
+        <ul>
+          <li><a href="https://learn.pengchengtangtcm.com" target="_blank" rel="noopener" data-zh="炁针学习平台" data-en="Qi Acupuncture Academy">炁针学习平台</a></li>
+          <li><a href="learning.html" data-zh="健康文章" data-en="Health Articles">健康文章</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-zh="© 2025 彭城堂中医 版权所有" data-en="© 2025 Pengchengtang TCM. All Rights Reserved.">© 2025 彭城堂中医 版权所有</span>
+      <span data-zh="传承中医，守护健康" data-en="Preserving TCM Heritage, Protecting Health">传承中医，守护健康</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Category filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const articleCards = document.querySelectorAll('#articlesGrid .article-card');
+  const featuredArticle = document.querySelector('.article-featured');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cat = btn.dataset.cat;
+
+      // Featured article
+      if (featuredArticle) {
+        featuredArticle.style.display = (cat === 'all' || featuredArticle.dataset.cat === cat) ? 'grid' : 'none';
+      }
+
+      // Grid articles
+      articleCards.forEach(card => {
+        const show = cat === 'all' || card.dataset.cat === cat;
+        card.style.display = show ? 'block' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>
