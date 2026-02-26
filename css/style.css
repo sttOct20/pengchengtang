@@ -358,7 +358,7 @@ h1, h2, h3, h4 { font-weight: 600; line-height: 1.3; }
 }
 .about-preview-img-main {
   width: 100%;
-  aspect-ratio: 4/5;
+  aspect-ratio: 4/3;
   background: var(--gray-light);
   overflow: hidden;
 }
