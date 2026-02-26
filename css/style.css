@@ -12,8 +12,8 @@
   --gray: #888888;
   --gray-light: #E8E3D9;
   --border: #D4CCC0;
-  --font-zh: 'Noto Serif SC', 'STSong', 'SimSun', serif;
-  --font-en: 'Cormorant Garamond', Georgia, serif;
+  --font-zh: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-en: 'Times New Roman', Times, serif;
   --nav-h: 72px;
   --max-w: 1200px;
 }
