@@ -231,11 +231,6 @@
       <div class="section-divider" style="margin:0 0 40px;"></div>
       <div class="filter-bar" id="filterBar">
         <button class="filter-btn active" data-cat="全部">全部</button>
-        <button class="filter-btn" data-cat="炁针疗法">炁针疗法</button>
-        <button class="filter-btn" data-cat="辨证施治">辨证施治</button>
-        <button class="filter-btn" data-cat="疑难杂症">疑难杂症</button>
-        <button class="filter-btn" data-cat="健康养生">健康养生</button>
-        <button class="filter-btn" data-cat="中药本草">中药本草</button>
       </div>
     </div>
 
@@ -294,7 +289,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span data-zh="© 2025 彭城堂中医 版权所有" data-en="© 2025 Pengchengtang TCM. All Rights Reserved.">© 2025 彭城堂中医 版权所有</span>
+      <span data-zh="© 2026 彭城堂中医 版权所有" data-en="© 2026 Pengchengtang TCM. All Rights Reserved.">© 2026 彭城堂中医 版权所有</span>
       <span data-zh="传承中医，守护健康" data-en="Preserving TCM Heritage, Protecting Health">传承中医，守护健康</span>
     </div>
   </div>
@@ -394,18 +389,36 @@ function goPage(p) {
   render();
 }
 
-// Filter buttons
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentCat = btn.dataset.cat;
-    currentPage = 1;
-    render();
+// Filter button click handler
+function bindFilterBtns() {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentCat = btn.dataset.cat;
+      currentPage = 1;
+      render();
+    });
   });
-});
+}
 
-render();
+// Load categories dynamically then render
+(async function init() {
+  try {
+    const res = await fetch('/api/categories.php');
+    const cats = await res.json();
+    const bar = document.getElementById('filterBar');
+    cats.forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn';
+      btn.dataset.cat = cat;
+      btn.textContent = cat;
+      bar.appendChild(btn);
+    });
+  } catch(e) {}
+  bindFilterBtns();
+  render();
+})();
 </script>
 </body>
 </html>
