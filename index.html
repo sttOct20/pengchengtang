@@ -218,39 +218,8 @@
       <a href="https://learn.pengchengtangtcm.com" target="_blank" rel="noopener" class="btn btn-primary" data-zh="进入学习平台" data-en="Enter Academy">进入学习平台</a>
     </div>
 
-    <!-- Article Placeholder Cards -->
-    <div class="articles-grid">
-      <div class="article-card reveal reveal-delay-1">
-        <div class="article-card-img" style="background:linear-gradient(135deg,#1a0505,#3d0a0a);display:flex;align-items:center;justify-content:center;">
-          <span style="font-size:3rem;color:rgba(196,30,58,0.4);">炁</span>
-        </div>
-        <div class="article-card-body">
-          <p class="article-card-tag" data-zh="炁针疗法" data-en="Qi Acupuncture">炁针疗法</p>
-          <h4 class="article-card-title" data-zh="什么是炁针？彭城堂炁针门核心疗法解析" data-en="What is Qi Acupuncture? Core Therapy Explained">什么是炁针？彭城堂炁针门核心疗法解析</h4>
-          <p class="article-card-date">2025-01-15</p>
-        </div>
-      </div>
-      <div class="article-card reveal reveal-delay-2">
-        <div class="article-card-img" style="background:linear-gradient(135deg,#0a1a0a,#1a3d1a);display:flex;align-items:center;justify-content:center;">
-          <span style="font-size:3rem;color:rgba(30,100,30,0.4);">舌</span>
-        </div>
-        <div class="article-card-body">
-          <p class="article-card-tag" data-zh="辨证施治" data-en="Diagnosis">辨证施治</p>
-          <h4 class="article-card-title" data-zh="六维舌诊：从舌象读懂身体的信号" data-en="Six-Dimension Tongue Diagnosis: Reading Your Body">六维舌诊：从舌象读懂身体的信号</h4>
-          <p class="article-card-date">2025-01-08</p>
-        </div>
-      </div>
-      <div class="article-card reveal reveal-delay-3">
-        <div class="article-card-img" style="background:linear-gradient(135deg,#0a0f1a,#1a2a3d);display:flex;align-items:center;justify-content:center;">
-          <span style="font-size:3rem;color:rgba(30,60,120,0.4);">针</span>
-        </div>
-        <div class="article-card-body">
-          <p class="article-card-tag" data-zh="疑难杂症" data-en="Complex Conditions">疑难杂症</p>
-          <h4 class="article-card-title" data-zh="针药并举：中医如何攻克疑难杂症" data-en="Acupuncture & Herbs: Tackling Complex Diseases">针药并举：中医如何攻克疑难杂症</h4>
-          <p class="article-card-date">2024-12-28</p>
-        </div>
-      </div>
-    </div>
+    <!-- Article Cards -->
+    <div class="articles-grid" id="homeArticlesGrid"></div>
 
     <div class="articles-center reveal">
       <a href="learning.html" class="btn btn-outline-dark" data-zh="查看更多文章" data-en="More Articles">查看更多文章</a>
@@ -305,12 +274,38 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span data-zh="© 2026 彭城堂中医 版权所有" data-en="© 2025 Pengchengtang TCM. All Rights Reserved.">© 2025 彭城堂中医 版权所有</span>
+      <span data-zh="© 2026 彭城堂中医 版权所有" data-en="© 2025 Pengchengtang TCM. All Rights Reserved.">© 2026 彭城堂中医 版权所有</span>
       <span data-zh="传承中医，守护健康" data-en="Preserving TCM Heritage, Protecting Health">传承中医，守护健康</span>
     </div>
   </div>
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+(async function() {
+  const grid = document.getElementById('homeArticlesGrid');
+  if (!grid) return;
+  try {
+    const res = await fetch('/api/articles.php?limit=3');
+    const data = await res.json();
+    const articles = data.articles || [];
+    if (articles.length === 0) { grid.style.display = 'none'; return; }
+    const delays = ['reveal-delay-1', 'reveal-delay-2', 'reveal-delay-3'];
+    grid.innerHTML = articles.map((a, i) => {
+      const thumb = a.thumbnail
+        ? `<img src="${a.thumbnail}" alt="${a.title}" style="width:100%;height:100%;object-fit:cover;display:block;">`
+        : `<div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0505,#3d0a0a);display:flex;align-items:center;justify-content:center;"><span style="font-size:3rem;color:rgba(196,30,58,0.4);">炁</span></div>`;
+      return `<a href="article.html?id=${a.id}" class="article-card reveal ${delays[i] || ''}">
+        <div class="article-card-img">${thumb}</div>
+        <div class="article-card-body">
+          <p class="article-card-tag">${a.category || ''}</p>
+          <h4 class="article-card-title">${a.title}</h4>
+          <p class="article-card-date">${a.publishedDate || ''}</p>
+        </div>
+      </a>`;
+    }).join('');
+  } catch(e) { grid.style.display = 'none'; }
+})();
+</script>
 </body>
 </html>
